@@ -1,9 +1,10 @@
 package com.accountopeningservice.accountopeningservice.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "Account_opening_service")
@@ -11,10 +12,24 @@ public class Account {
     @Id
     @GeneratedValue
     private long account_no;
+    @NotEmpty
+    @Column(name = "Name",nullable = false)
     private String name;
+    @NotEmpty
+    @Column(name = "Current_Address",nullable = false)
     private String address;
+    @Pattern(regexp = "^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$")
+    @NotEmpty
+    @Column(name = "PAN_no", nullable = false, unique = true, length = 10)
     private String pan_no;
-    private long aadhar_no;
+    @Digits(integer = 16, fraction = 0)
+    @NotEmpty
+    @Column(name = "Aadhar_No", nullable = false, unique = true)
+    private double aadhar_no;
+
+    public void setAadhar_no(long aadhar_no) {
+        this.aadhar_no = aadhar_no;
+    }
 
     public Account() {
     }
@@ -51,11 +66,8 @@ public class Account {
         this.pan_no = pan_no;
     }
 
-    public long getAadhar_no() {
+    public double getAadhar_no() {
         return aadhar_no;
     }
 
-    public void setAadhar_no(long aadhar_no) {
-        this.aadhar_no = aadhar_no;
-    }
 }
