@@ -21,5 +21,6 @@ public class AccountController {
         Account saveAccount=accountService.createAccount(account);
         return new ResponseEntity<Account>(saveAccount, HttpStatus.CREATED);
 
+
     }
 }

@@ -1,4 +1,4 @@
-package com.accountopeningservice.accountopeningservice.validationhandler;
+package com.accountopeningservice.accountopeningservice.controller;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
