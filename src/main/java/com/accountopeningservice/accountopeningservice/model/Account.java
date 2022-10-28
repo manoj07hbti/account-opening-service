@@ -26,15 +26,15 @@ public class Account {
 
     @Max(12)
     @Column(name = "Aadhar_Number", nullable = false)
-    private double aadhar_no;
+    private String aadhar_no;
 
     @Max(10)
     @Column(name = "Amount")
-    private double amount;
+    private String amount;
     public Account() {
     }
 
-    public Account(long account_no, String name, String address, String pan_no, long aadhar_no,double amount) {
+    public Account(long account_no, String name, String address, String pan_no, String aadhar_no,String amount) {
         this.account_no = account_no;
         this.name = name;
         this.address = address;
@@ -67,7 +67,7 @@ public class Account {
         this.pan_no = pan_no;
     }
 
-    public double getAadhar_no() {
+    public String getAadhar_no() {
         return aadhar_no;
     }
 
@@ -75,7 +75,7 @@ public class Account {
         this.aadhar_no = aadhar_no;
     }
 
-    public double getAmount() {
+    public String getAmount() {
         return amount;
     }
 
