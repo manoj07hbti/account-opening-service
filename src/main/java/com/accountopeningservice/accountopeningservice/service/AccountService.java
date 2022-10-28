@@ -33,5 +33,10 @@ public class AccountService {
 
             return "Successfully updated name as " + name;
         }
+        //Delete method Service Logic
+        public String deleteAccount(long account_no){
+
+            accountRepository.deleteById(account_no);
+            return "Successfully deleted data from DB";
+        }
     }
-}

@@ -32,8 +32,11 @@ public class AccountController {
     public String updateAccount(@PathVariable long account_no,@PathVariable String name){
 
         return   accountService.updateAccount(account_no,name);
-
-
     }
+//Delete method Controller
+@DeleteMapping("/delete_account/{account_no}")
+public String deleteAccount(@PathVariable long account_no){
 
+    return accountService.deleteAccount(account_no);
+}
 }
