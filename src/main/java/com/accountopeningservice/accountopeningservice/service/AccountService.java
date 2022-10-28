@@ -5,6 +5,8 @@ import com.accountopeningservice.accountopeningservice.repository.AccountReposit
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AccountService {
     @Autowired
@@ -14,4 +16,8 @@ public class AccountService {
 
         return accountRepository.save(account);
 }
+    public List<Account> getAllAccount(){
+
+        return accountRepository.findAll() ;// get all the data from table
+    }
 }

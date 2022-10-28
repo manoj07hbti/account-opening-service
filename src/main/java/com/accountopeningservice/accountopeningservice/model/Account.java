@@ -19,16 +19,17 @@ public class Account {
 
     @Column(name = "Current_Address",nullable = false)
     private String address;
-    @Max(10)
-   // @Pattern(regexp = "^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$")
+   // @Pattern(regexp = "\"[A-Z]{5}[0-9]{4}[A-Z]{1}\"")
+    @Size(max = 10)
     @Column(name = "PAN_Number", nullable = false)
     private String pan_no;
 
-    @Max(12)
+
+    @Size(max = 12)
     @Column(name = "Aadhar_Number", nullable = false)
     private String aadhar_no;
 
-    @Max(10)
+    @Size(max = 16)
     @Column(name = "Amount")
     private String amount;
     public Account() {
@@ -71,7 +72,7 @@ public class Account {
         return aadhar_no;
     }
 
-    public void setAadhar_no(double aadhar_no) {
+    public void setAadhar_no(String aadhar_no) {
         this.aadhar_no = aadhar_no;
     }
 
@@ -79,7 +80,7 @@ public class Account {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(String  amount) {
         this.amount = amount;
     }
 }
