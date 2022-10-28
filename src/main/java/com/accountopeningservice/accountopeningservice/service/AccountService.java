@@ -4,6 +4,7 @@ import com.accountopeningservice.accountopeningservice.model.Account;
 import com.accountopeningservice.accountopeningservice.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class AccountService {
 
         return accountRepository.findAll();
     }
-    //Put method Service Logic
+    //Put/Update method Service Logic
     public String updateAccount(long account_no, String name) {
 
 
@@ -33,10 +34,24 @@ public class AccountService {
 
             return "Successfully updated name as " + name;
         }
+    //Put/Update method service logic via JSON object
+
+  /*  public String updateAccount(Account account) {
+        Account account1 = accountRepository.getReferenceById(accountRepository.count());
+
+        accountRepository.save(account1);
+
+        return "Successfully updated data of the selected Account Number" ;
+    }*/
+
+
+
         //Delete method Service Logic
         public String deleteAccount(long account_no){
 
             accountRepository.deleteById(account_no);
-            return "Successfully deleted data from DB";
+            return "Successfully deleted selected Account Number data from Database";
         }
+
     }
+

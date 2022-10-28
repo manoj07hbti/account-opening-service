@@ -19,7 +19,7 @@ public class Account {
 
     @Column(name = "Current_Address",nullable = false)
     private String address;
-   // @Pattern(regexp = "\"[A-Z]{5}[0-9]{4}[A-Z]{1}\"")
+    @Pattern(regexp = "[A-Z]{5}[0-9]{4}[A-Z]{1}")
     @Size(max = 10)
     @Column(name = "PAN_Number", nullable = false)
     private String pan_no;

@@ -27,12 +27,20 @@ public class AccountController {
 
         return accountService.getAllAccount();
     }
-    //Put method Controller.
+    //Put/Update method Controller.
     @PutMapping("/update_account/{account_no}/{name}")
     public String updateAccount(@PathVariable long account_no,@PathVariable String name){
 
         return   accountService.updateAccount(account_no,name);
     }
+    //Put/Update method controller via JSON object
+/*    @PutMapping("update_account_body")
+    public String updateAccount(@RequestBody Account account){
+
+
+        return accountService.updateAccount(account);
+    }*/
+
 //Delete method Controller
 @DeleteMapping("/delete_account/{account_no}")
 public String deleteAccount(@PathVariable long account_no){
