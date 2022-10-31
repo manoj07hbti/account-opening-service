@@ -3,6 +3,8 @@ package AccountOpeningServiceRohit.model;
 import org.hibernate.query.criteria.internal.expression.function.AggregationFunction;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity (name = "Bank_Opening")
 public class Account {
@@ -16,11 +18,12 @@ public class Account {
 
     @Column(name = "Address")
     private String address;
-
-    @Column(name = "Pan_Number")
+    @Pattern(regexp = "[A-Z]{5}[0-9]{4}[A-Z]{1}")
+    @Size(max = 10)
+    @Column(name = "Pan_Number",nullable = false)
     private String pan_no;
 
-    @Column(name = "Aadhar_Number1")
+    @Column(name = "Aadhar_Number",nullable = false)
     private double aadhar_no;
 
     @Column(name ="Amount")

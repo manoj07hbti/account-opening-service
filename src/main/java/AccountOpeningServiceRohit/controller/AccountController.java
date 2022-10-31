@@ -14,7 +14,7 @@ import java.util.List;
 public class AccountController {
     @Autowired
     private AccountService accountService;
-
+    //Post method
     @PostMapping("new")
     public ResponseEntity<Account> createAccount(@RequestBody Account account) {
         Account saveAccount = accountService.createAccount(account);
