@@ -8,11 +8,11 @@
 		<version>2.7.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>account-opening-service</groupId>
-	<artifactId>account-opening-service</artifactId>
+	<groupId>AccountOpeningService</groupId>
+	<artifactId>AccountOpeningServiceRohit</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>account-opening-service</name>
-	<description>account-opening-service-project for Spring Boot</description>
+	<name>AccountOpeningServiceRohit</name>
+	<description>AccountOpeningServiceRohit project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -35,10 +35,13 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
+		</dependency><dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-validation</artifactId>
+	</dependency>
 		<dependency>
-			<groupId>com.microsoft.sqlserver</groupId>
-			<artifactId>mssql-jdbc</artifactId>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
