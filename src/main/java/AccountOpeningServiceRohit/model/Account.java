@@ -1,42 +1,45 @@
 package AccountOpeningServiceRohit.model;
 
-import org.hibernate.query.criteria.internal.expression.function.AggregationFunction;
 
 import javax.persistence.*;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Entity (name = "Bank_Opening")
 public class Account {
     @Id
     @GeneratedValue
-    @Column(name = "Account_Number")
+    @Column(name = "Account_Number",nullable = false)
     long account_no;
 
-    @Column(name = "Name")
+    @Column(name = "Name",nullable = false)
     private String name;
 
     @Column(name = "Address")
     private String address;
+
     @Pattern(regexp = "[A-Z]{5}[0-9]{4}[A-Z]{1}")
-    @Size(max = 10)
+    @Size(max = 10,message = "pan card number should be 10 digit...........:)")
     @Column(name = "Pan_Number",nullable = false)
     private String pan_no;
 
-    @Column(name = "Aadhar_Number",nullable = false)
-    private double aadhar_no;
+
+    @Column(name = "Aadhaar_No",nullable = false)
+    @Size(min = 12,max = 12,message = "please Enter valid AadhaarCard Number" )
+    private String Aadhaar_No;
+
 
     @Column(name ="Amount")
+    @NotNull(message = "Enter Amount")
+    @Min(value = 1000,message = "You must Deposit 1000/- Rupees to open your Bank account......:)")
     private double amount;
     public Account() {
     }
-
-    public Account(long account_no, String name, String address, String pan_no, double aadhar_no, double amount) {
+    public Account(long account_no, String name, String address, String pan_no, String Aadhaar_No, double amount) {
         this.account_no = account_no;
         this.name = name;
         this.address = address;
         this.pan_no = pan_no;
-        this.aadhar_no = aadhar_no;
+        this.Aadhaar_No = Aadhaar_No;
         this.amount = amount;
     }
 
@@ -72,12 +75,12 @@ public class Account {
         this.pan_no = pan_no;
     }
 
-    public double getAadhar_no() {
-        return aadhar_no;
+    public String getAadhaar_No() {
+        return Aadhaar_No;
     }
 
-    public void setAadhar_no(double aadhar_no) {
-        this.aadhar_no = aadhar_no;
+    public void setAadhaar_No(String Aadhaar_No) {
+        this.Aadhaar_No = Aadhaar_No;
     }
 
     public double getAmount() {

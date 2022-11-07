@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -15,8 +16,9 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
     //Post method
-    @PostMapping("new")
-    public ResponseEntity<Account> createAccount(@RequestBody Account account) {
+    @PostMapping("addnewaccount")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Account> createAccount(@RequestBody @Valid Account account) {
         Account saveAccount = accountService.createAccount(account);
         return new ResponseEntity<Account>(saveAccount, HttpStatus.CREATED);
     }
